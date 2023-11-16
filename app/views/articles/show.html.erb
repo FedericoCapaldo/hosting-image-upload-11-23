@@ -1,10 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<div class="card-category"
-  style="height: 300px; width: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @article.photo.key, height: 300, crop: :fill %>')"
->
-  <%= render @article %>
-</div>
+
+<%= render @article %>
+
+<% @article.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
 
 
 <div>
